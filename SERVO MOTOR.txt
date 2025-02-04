@@ -1,0 +1,75 @@
+#include <reg51.h>
+
+#include <stdio.h>
+ 
+ 
+void delay(unsigned int counts)
+
+{
+
+      unsigned int i;
+
+      while(counts--)
+
+      {
+
+	 i=115;
+
+	 while(--i);
+
+      }
+
+}
+ 
+void main(void)
+
+{ 
+
+   unsigned int angle;
+
+   while (1)
+
+   {
+
+      //Clockwise motion
+
+      for(angle=0; angle<180; angle+=10)
+
+      {
+
+	 P2=0x01;
+
+	 delay(angle/90);
+
+	 P2=0x00;
+
+	 delay(20);
+
+      }
+
+      delay(1000);
+
+      //Anti-Clockwise motion
+
+      for(angle=360; angle>0; angle-=10)
+
+      {
+
+	 P2=0x01;
+
+	 delay(angle/90);
+
+	 P2=0x00;
+
+	 delay(20);
+
+      }
+
+   }
+
+}
+ 
+
+ 
+ 
+ 
