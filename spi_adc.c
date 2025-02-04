@@ -27,9 +27,9 @@ lcd_init();
 	delay(65000);
 		lcd_cmd(0x01);
 		lcd_cmd(0x80);
-lcd_str("   YT TRAINING   ");
+lcd_str("  SMART TEMP LCD   ");
 	lcd_cmd(0xc0);
-	lcd_str("   INSTITUTE   ");
+	lcd_str("  using SPI   ");
 		delay(65000);
 		lcd_cmd(0x01);
 		lcd_cmd(0x80);
@@ -40,7 +40,7 @@ lcd_str(" SPI TEMP VALUE ");
 	
 	temp=spi_adc_value();//adc
 		lcd_cmd(0xc0);
-		temp=temp/8.5;
+		temp=temp/8.5;//conversion 
 		hex2ascii(temp);
 		
 	
